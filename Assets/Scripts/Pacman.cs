@@ -51,12 +51,10 @@ public class Pacman : MonoBehaviour
         }
         if (col.gameObject.name == "end1")
         {
-            Debug.Log("edn1");
             transform.position = new Vector3(initEnd2.x - 3, transform.position.y, transform.position.z);
         }
         else if (col.gameObject.name == "end2")
         {
-            Debug.Log("edn2");
             transform.position = new Vector3(initEnd1.x + 3, transform.position.y, transform.position.z); ; 
         }
     }
