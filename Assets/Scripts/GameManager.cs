@@ -68,22 +68,6 @@ public class GameManager : MonoBehaviour
         ReducePellet(amount);
     }
 
-    public void GhostCollide()
-    {
-        foreach (PCTetse item in ghostList)
-        {
-            if(item.state != PCTetse.GhostStates.GHOST_EATEN || item.state != PCTetse.GhostStates.FRIGHTEND)
-            {
-                LoseLife();
-            } else
-            {
-                item.state = PCTetse.GhostStates.GHOST_EATEN;
-                score += 20;                
-            }
-           
-        }
-    }
-
     void WinCondition()
     {
         cur_level++;
@@ -101,11 +85,6 @@ public class GameManager : MonoBehaviour
             hasLost = true;
             SceneManager.LoadScene("GameOver");
             return;
-        }
-
-        foreach (PCTetse item in ghostList)
-        {
-            item.Reset();
         }
 
         pacman.Reset();

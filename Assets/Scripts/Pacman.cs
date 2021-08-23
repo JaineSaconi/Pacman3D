@@ -45,10 +45,6 @@ public class Pacman : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name == "Clyde" || col.gameObject.name == "Clyde(1)" || col.gameObject.name == "Clyde(2)" || col.gameObject.name == "Clyde(3)")
-        {
-            GameManager.intance.GhostCollide();
-        }
         if (col.gameObject.name == "end1")
         {
             transform.position = new Vector3(initEnd2.x - 3, transform.position.y, transform.position.z);

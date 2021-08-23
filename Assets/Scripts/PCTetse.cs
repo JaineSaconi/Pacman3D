@@ -136,7 +136,6 @@ public class PCTetse : MonoBehaviour
     void Follow()
     {
         agente.SetDestination(PC.transform.position);
-
     }
 
     void CheckSate()
@@ -249,6 +248,22 @@ public class PCTetse : MonoBehaviour
     {
         transform.position =initPosition ;
         state = initState;
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if(col.gameObject.name == "Chomp")
+        {
+            if(state != GhostStates.GHOST_EATEN && state != GhostStates.FRIGHTEND)
+            {
+                GameManager.intance.LoseLife();
+                Reset();
+            } else
+            {
+                GameManager.intance.AddScore(20);
+                state = GhostStates.GHOST_EATEN;
+            }
+        }
     }
 }
 
